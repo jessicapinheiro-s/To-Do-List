@@ -1,0 +1,77 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    color: #242424;
+}
+.container{
+    width: 400px;
+    margin: auto;
+    margin-top: 40px;
+}
+.subContainer{
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+}
+#lista{
+    margin: auto;
+    width: 350px;
+}
+ul li {
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgb(189, 215, 253);
+    list-style: none;
+    padding: 8px;
+}
+#inTarefa{
+    padding: 8px;
+    outline: none;
+    border: 1px solid rgb(189, 215, 253);
+    width: 70%;
+}
+h1{
+    color: #474747;
+}
+h1, input, button{
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+#btExcluir, #btExcluirTd, #btAdd{
+    color: #fff;
+}
+.resposta{
+    text-align: center;
+}
+#checkbox{
+    margin-right: 20px;
+    margin-left: 20px;
+}
+#btExcluir,#btExcluirTd, #btAdd{
+    background-color: rgb(79, 119, 95);
+    width: 100px;
+    border: none;
+    padding: 8px;
+}
+#btExcluir:hover{
+    background-color: rgb(56, 83, 67);
+}
+#btExcluirTd{
+    width: 170px;
+    background-color: rgb(209, 58, 58);
+}
+#btExcluirTd:hover{
+    background-color: rgb(163, 48, 28); 
+}
+#btAdd{
+    width: 40px;
+    background-color: rgb(0, 102, 255);
+}
+#btAdd:hover{
+    background-color: rgb(9, 84, 196); 
+}
+
