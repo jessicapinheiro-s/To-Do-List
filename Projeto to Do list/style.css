@@ -24,21 +24,22 @@ body{
 }
 ul li {
     margin-bottom: 10px;
-    border-bottom: 1px solid rgb(189, 215, 253);
+    border: 1px solid rgb(0, 0, 0);
     list-style: none;
     padding: 8px;
 }
 #inTarefa{
     padding: 8px;
     outline: none;
-    border: 1px solid rgb(189, 215, 253);
+    border: none;
+    border-bottom: 2px solid #000000;
     width: 70%;
+    font-size: 1.2rem;
 }
 h1{
     color: #474747;
 }
 h1, input, button{
-    border-radius: 8px;
     margin-bottom: 10px;
 }
 #btExcluir, #btExcluirTd, #btAdd{
@@ -69,9 +70,9 @@ h1, input, button{
 }
 #btAdd{
     width: 40px;
-    background-color: rgb(0, 102, 255);
+    background-color: #000000;
 }
 #btAdd:hover{
-    background-color: rgb(9, 84, 196); 
+    background-color: #0f0f0f; 
 }
 
