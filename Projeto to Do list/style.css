@@ -101,6 +101,7 @@ button {
     justify-content: space-around;
     padding: 20px;
 }
+
 /*
 .circle-theme-dark.animation {
     animation: moveToRight 0.5s ease;
@@ -159,7 +160,7 @@ button {
 }
 
 .body.dark {
-    background-color: #695a5a;
+    background-color: #030303;
     color: #fff;
 }
 
@@ -191,38 +192,52 @@ button {
     position: relative;
 
 }
-.dark-theme-border:before{
+
+.dark-theme-border:before {
     content: '';
     position: absolute;
     width: 30px;
     height: 30px;
     left: 1px;
     top: 50%;
-    border-radius:50% ;
+    border-radius: 50%;
     background-color: #000000;
     transform: translateY(-50%);
     transition: left 1s;
 }
-.dark-theme-border.animation:before{
-    left: 29px;    
+
+.dark-theme-border.animation:before {
+    left: 29px;
+    background-color: #fff;
 }
+
+.dark-theme-border.animation {
+    border: 5px solid #ffffff;
+}
+
 .anime-theme-border {
     border: 5px solid orangered;
     position: relative;
 }
-.anime-theme-border:before{
+
+.anime-theme-border:before {
     content: '';
     position: absolute;
     width: 30px;
     height: 30px;
     left: 1px;
     top: 50%;
-    border-radius:50% ;
+    border-radius: 50%;
     background-color: orangered;
     transform: translateY(-50%);
     transition: left 1s;
 }
-.anime-theme-border.animation:before{
+
+.anime-theme-border.animation:before {
     left: 29px;
-    
+    background-color: #fff;
+}
+
+.anime-theme-border.animation {
+    border: 5px solid #ffffff;
 }

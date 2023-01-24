@@ -41,7 +41,6 @@ function excluir() {
     let checkbox = document.getElementsByTagName('input');
     let li = document.getElementsByTagName('li');
     let lista = document.getElementById('lista');
-
     let tamc = checkbox.length + 1;
 
     var aux = -1;
@@ -58,15 +57,14 @@ let btExcluir = document.getElementById('btExcluir');
 btExcluir.addEventListener('click', excluir);
 
 function cores(){
-    if(document.querySelector('.circle-theme-dark').classList.contains('ativo')){
-        document.querySelector('.circle-theme-anime').classList.remove('ativo');
-    }else if(document.querySelector('.circle-theme-anime').classList.contains('ativo')){
-        document.querySelector('.circle-theme-dark').classList.remove('ativo')
+    if(document.querySelector('.dark-theme-border').classList.contains('animation')){
+        document.querySelector('.anime-theme-border').classList.remove('animation');
+    }else if(document.querySelector('.anime-theme-border').classList.contains('animation')){
+        document.querySelector('.dark-theme-border').classList.remove('animation')
     }
 }
 cores();
 function bgDark(){
-    const btnDarkMode = document.querySelector('.dark-theme-border');
     document.querySelector('.dark-theme-border').classList.toggle('animation');
     document.querySelector('.body').classList.toggle('dark');
     document.querySelector('.container').classList.toggle('dark');
