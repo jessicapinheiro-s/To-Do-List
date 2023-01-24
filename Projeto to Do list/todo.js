@@ -57,6 +57,28 @@ function excluir() {
 let btExcluir = document.getElementById('btExcluir');
 btExcluir.addEventListener('click', excluir);
 
+function cores(){
+    if(document.querySelector('.circle-theme-dark').classList.contains('ativo')){
+        document.querySelector('.circle-theme-anime').classList.remove('ativo');
+    }else if(document.querySelector('.circle-theme-anime').classList.contains('ativo')){
+        document.querySelector('.circle-theme-dark').classList.remove('ativo')
+    }
+}
+cores();
+function bgDark(){
+    const btnDarkMode = document.querySelector('.dark-theme-border');
+    document.querySelector('.dark-theme-border').classList.toggle('animation');
+    document.querySelector('.body').classList.toggle('dark');
+    document.querySelector('.container').classList.toggle('dark');
+    
+}
+function bgAnime(){
+    document.querySelector('.anime-theme-border').classList.toggle('desativado');
+    document.querySelector('.anime-theme-border').classList.toggle('animation');
 
+    document.querySelector('.circle-theme-anime').classList.toggle('ativo');
+    document.querySelector('.body').classList.toggle('anime');
+    document.querySelector('.container').classList.toggle('anime');
+}
 
 
