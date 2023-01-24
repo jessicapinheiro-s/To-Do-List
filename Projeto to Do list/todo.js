@@ -57,18 +57,6 @@ function excluir() {
 let btExcluir = document.getElementById('btExcluir');
 btExcluir.addEventListener('click', excluir);
 
-function removertodas () {
-    let li = document.getElementsByTagName('li');
-    let lista = document.getElementById('lista');
 
-    let tam = li.length;
-    if (tam == 0){
-        alert('oi');
-    }else{
-        lista.textContent = '';
-    }
-}
-let btExcluirTd = document.getElementById('btExcluirTd');
-btExcluirTd.addEventListener('click', removertodas);
 
 

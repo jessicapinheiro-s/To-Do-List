@@ -57,8 +57,7 @@ button{
 #checkbox{
     margin: 10px;
 }
-#btExcluir,
-#btExcluirTd, 
+#btExcluir, 
 #btAdd{
     background-color: #4f775f;
     width: 100px;
@@ -69,13 +68,6 @@ button{
 }
 #btExcluir:hover{
     background-color: #385343;
-}
-#btExcluirTd{
-    width: 170px;
-    background-color: #d13a3a;
-}
-#btExcluirTd:hover{
-    background-color: #a3301c; 
 }
 #btAdd{
     background-color: #000000;
