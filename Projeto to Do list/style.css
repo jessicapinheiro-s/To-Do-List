@@ -59,15 +59,20 @@ button{
 }
 #btExcluir, 
 #btAdd{
-    background-color: #4f775f;
     width: 100px;
     border: none;
     padding: 10px;
     border-radius: 6px;
     color: #fff;
+    font-size: 1.2rem;
+}
+#btExcluir{
+    box-shadow: 1px 3px 5px 3px #bbbbbb36;
+    color: #000000;
+    background-color: #fff;
 }
 #btExcluir:hover{
-    background-color: #385343;
+    background-color: #fafafa;
 }
 #btAdd{
     background-color: #000000;
