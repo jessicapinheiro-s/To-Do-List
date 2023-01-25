@@ -12,8 +12,7 @@ body {
 
 .container {
     width: 500px;
-    margin: auto;
-    margin-top: 40px;
+    margin: 40px auto;
 }
 
 .subContainer {
@@ -26,6 +25,7 @@ body {
 #lista {
     margin: auto;
     width: 350px;
+    z-index: 1;
 }
 
 ul li {
@@ -157,6 +157,7 @@ button {
     bottom: 0;
     left: 0;
     right: 0;
+    z-index: 2;
 }
 
 .body.dark {
@@ -165,7 +166,7 @@ button {
 }
 
 .container.dark {
-    background-color: #0f0f0f;
+    background-color: #1b1b1b;
 }
 
 .body.anime {
@@ -240,4 +241,11 @@ button {
 
 .anime-theme-border.animation {
     border: 5px solid #ffffff;
+}
+.li{
+    background-color: #000000;
+}
+.liDark{
+    background-color: #1b1b1b;
+    color: #ffffff;
 }

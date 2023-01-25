@@ -42,7 +42,6 @@ function excluir() {
     let li = document.getElementsByTagName('li');
     let lista = document.getElementById('lista');
     let tamc = checkbox.length + 1;
-
     var aux = -1;
 
     for (var i = 0; i < tamc; i++) {
@@ -56,27 +55,29 @@ function excluir() {
 let btExcluir = document.getElementById('btExcluir');
 btExcluir.addEventListener('click', excluir);
 
-function cores(){
-    if(document.querySelector('.dark-theme-border').classList.contains('animation')){
-        document.querySelector('.anime-theme-border').classList.remove('animation');
-    }else if(document.querySelector('.anime-theme-border').classList.contains('animation')){
-        document.querySelector('.dark-theme-border').classList.remove('animation')
-    }
-}
-cores();
-function bgDark(){
+
+function bgDark() {
     document.querySelector('.dark-theme-border').classList.toggle('animation');
+
     document.querySelector('.body').classList.toggle('dark');
     document.querySelector('.container').classList.toggle('dark');
-    
+    if(document.querySelector('.dark-theme-border').classList.contains('animation')){
+        
+        let litsLi = document.getElementsByTagName('li');
+        
+        while (litsLi.length >= 0){
+            //problema aqui
+        }
+    }
 }
-function bgAnime(){
-    document.querySelector('.anime-theme-border').classList.toggle('desativado');
-    document.querySelector('.anime-theme-border').classList.toggle('animation');
+function li() {
+    if(document.querySelector('.dark-theme-border').classList.contains('animation')){
+        alert('oi');
+    }
+}
+li();
 
-    document.querySelector('.circle-theme-anime').classList.toggle('ativo');
-    document.querySelector('.body').classList.toggle('anime');
-    document.querySelector('.container').classList.toggle('anime');
-}
+
+
 
 
