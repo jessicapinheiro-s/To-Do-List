@@ -23,9 +23,10 @@ body {
 }
 
 #lista {
-    margin: auto;
+    margin: 0px auto 60px  ;
     width: 350px;
     z-index: 1;
+
 }
 
 ul li {
@@ -158,6 +159,7 @@ button {
     left: 0;
     right: 0;
     z-index: 2;
+    background-color: #fff;
 }
 
 .body.dark {
