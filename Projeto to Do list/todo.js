@@ -4,35 +4,54 @@ function addTarefa() {
     let resp = document.querySelector('div.resposta');
     let respost = document.getElementById("resposta");
 
-    if (tarefa == '') {
-        resp.innerHTML = `O campo está vazio, digite algo..`;
-        respost.style.backgroundColor = '#d12929';
-        respost.style.width = '300px';
-        respost.style.margin = '0 auto';
-        respost.style.color = '#fff';
-        respost.style.padding = '15px';
-        respost.style.borderRadius = '8px';
+
+    if (localStorage.getItem('listaTarefa')) {
+        let listTarefaArray = localStorage.getItem('listaTarefa');
+        let div = document.createElement('div');
+        let pTarefa = document.createElement('p');
+        div.appendChild(document.getElementById('list'));
+        pTarefa.innerHTML = `${listTarefaArray}`;
+        pTarefa.appendChild(div);
+    }else{
+        if (tarefa == '') {
+            resp.innerHTML = `O campo está vazio, digite algo..`;
+            respost.style.backgroundColor = '#d12929';
+            respost.style.width = '300px';
+            respost.style.margin = '0 auto';
+            respost.style.color = '#fff';
+            respost.style.padding = '15px';
+            respost.style.borderRadius = '8px';
+            inTarefa.focus();
+            return;
+        }
+        respost.style.backgroundColor = '#ffffff';
+        resp.innerHTML = '';
+    
+        let lista = document.getElementById('lista');
+        let li = document.createElement('li');
+        let txt = document.createTextNode(tarefa);
+    
+        let checkbox = document.createElement('input');
+        checkbox.classList.add('checkbox');
+        checkbox.type = 'checkbox';
+        checkbox.id = 'checkbox';
+    
+        li.appendChild(checkbox);
+        li.appendChild(txt);
+        lista.appendChild(li);
+    
+        //salva no localStorage
+        localStorage.setItem('tarefa', tarefa);
+        let listaTarefa = JSON.parse(localStorage.getItem('listaTarefa') || '[]')
+    
+        listaTarefa.push({ tarefa: tarefa });
+    
+        localStorage.setItem("listaTarefa", JSON.stringify(listaTarefa));
+    
+        inTarefa.value = '';
         inTarefa.focus();
-        return;
     }
-    respost.style.backgroundColor = '#ffffff';
-    resp.innerHTML = '';
 
-    let lista = document.getElementById('lista');
-    let li = document.createElement('li');
-    let txt = document.createTextNode(tarefa);
-
-    let checkbox = document.createElement('input');
-    checkbox.classList.add('checkbox');
-    checkbox.type = 'checkbox';
-    checkbox.id = 'checkbox';
-
-    li.appendChild(checkbox);
-    li.appendChild(txt);
-    lista.appendChild(li);
-
-    inTarefa.value = '';
-    inTarefa.focus();
 }
 let btAdd = document.getElementById('btAdd');
 btAdd.addEventListener('click', addTarefa);
@@ -61,17 +80,17 @@ function bgDark() {
 
     document.querySelector('.body').classList.toggle('dark');
     document.querySelector('.container').classList.toggle('dark');
-    if(document.querySelector('.dark-theme-border').classList.contains('animation')){
-        
+    if (document.querySelector('.dark-theme-border').classList.contains('animation')) {
+
         let litsLi = document.getElementsByTagName('li');
-        
-        while (litsLi.length >= 0){
+
+        while (litsLi.length >= 0) {
             //problema aqui
         }
     }
 }
 function li() {
-    if(document.querySelector('.dark-theme-border').classList.contains('animation')){
+    if (document.querySelector('.dark-theme-border').classList.contains('animation')) {
         alert('oi');
     }
 }
