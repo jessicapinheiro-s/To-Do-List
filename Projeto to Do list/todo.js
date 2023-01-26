@@ -62,8 +62,7 @@ function addTarefa() {
     li.appendChild(txt);
     lista.appendChild(li);
 
-
-
+    li.setAttribute('class', 'li');
 
     //salva no localStorage
     //criando a array de obj
