@@ -17,9 +17,16 @@ function verificarLocalStorage() {
         for (let i = 0; i < partes.length; i++) {
             let li = document.createElement('li')
             let txtx = document.createTextNode(partes[i]);
+            
+            let checkbox = document.createElement('input');
+
+            checkbox.classList.add('checkbox');
+            checkbox.type = 'checkbox';
+            checkbox.id = 'checkbox';
+
+            li.appendChild(checkbox);
             list.appendChild(li);
             li.appendChild(txtx);
-
         }
         addClasses();
     }
@@ -72,8 +79,6 @@ document.getElementById('btAdd').addEventListener('click', function addTarefa() 
 
     //salva no localStorage
     localStorage.setItem("listaTarefa", JSON.stringify(listaTarefa));
-
-    //alert(listaTarefa[0].tarefa);
 
     inTarefa.value = '';
     inTarefa.focus();
