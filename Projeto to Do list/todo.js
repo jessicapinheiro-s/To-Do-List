@@ -41,8 +41,8 @@ function addTarefa() {
     let lista = document.getElementById('lista');
     let li = document.createElement('li');
     let txt = document.createTextNode(tarefa);
-
     let checkbox = document.createElement('input');
+
     checkbox.classList.add('checkbox');
     checkbox.type = 'checkbox';
     checkbox.id = 'checkbox';
@@ -91,29 +91,24 @@ function excluir() {
 let btExcluir = document.getElementById('btExcluir');
 btExcluir.addEventListener('click', excluir);
 
-/*
+
 function bgDark() {
     document.querySelector('.dark-theme-border').classList.toggle('animation');
 
     document.querySelector('.body').classList.toggle('dark');
     document.querySelector('.container').classList.toggle('dark');
-    if (document.querySelector('.dark-theme-border').classList.contains('animation')) {
+    
 
-        let litsLi = document.getElementsByTagName('li');
+        let liList = document.getElementsByTagName('li');
+        alert(document.getElementsByTagName('li').length);
+        for(let i=0; i< liList.length; i++){
+            liList[i].style.backgroundColor = '#fff';
+            liList[i].style.color = '#000';
 
-        while (litsLi.length >= 0) {
-            //problema aqui
         }
-    }
+    
 }
-function li() {
-    if (document.querySelector('.dark-theme-border').classList.contains('animation')) {
-        alert('oi');
-    }
-}
-li();
 
-*/
 
 
 
