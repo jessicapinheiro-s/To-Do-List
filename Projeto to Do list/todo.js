@@ -1,5 +1,3 @@
-let tarefas = [];
-
 function addClasses() {
     let lis = document.getElementsByTagName("li");
     for (let i = 0; i < lis.length; i++) {
@@ -8,6 +6,7 @@ function addClasses() {
 }
 addClasses();
 
+/*função que verifica se há itens da lista gravados no local storage (não excluidos)*/
 function verificarLocalStorage() {
     if (localStorage.getItem('listaTarefa')) {
         let listTarefaArray = localStorage.getItem('listaTarefa');
@@ -20,14 +19,14 @@ function verificarLocalStorage() {
             let txtx = document.createTextNode(partes[i]);
             list.appendChild(li);
             li.appendChild(txtx);
-            
+
         }
         addClasses();
     }
 }
 verificarLocalStorage();
 
-function addTarefa() {
+document.getElementById('btAdd').addEventListener('click', function addTarefa() {
     let inTarefa = document.getElementById('inTarefa');
     let tarefa = inTarefa.value;
     let resp = document.querySelector('div.resposta');
@@ -50,7 +49,7 @@ function addTarefa() {
 
     let lista = document.getElementById('lista');
     let li = document.createElement('li');
-    
+
     let txt = document.createTextNode(tarefa);
     let checkbox = document.createElement('input');
 
@@ -78,13 +77,10 @@ function addTarefa() {
 
     inTarefa.value = '';
     inTarefa.focus();
-}
+})
 
 
-let btAdd = document.getElementById('btAdd');
-btAdd.addEventListener('click', addTarefa);
-
-function excluir() {
+document.getElementById('btExcluir').addEventListener('click', function excluir() {
     let checkbox = document.getElementsByTagName('input');
     let li = document.getElementsByTagName('li');
     let lista = document.getElementById('lista');
@@ -98,11 +94,10 @@ function excluir() {
             break;
         }
     }
-}
-let btExcluir = document.getElementById('btExcluir');
-btExcluir.addEventListener('click', excluir);
+})
 
 
+/*função para acionar dark theme*/
 function bgDark() {
     let btnDark = document.querySelector('.dark-theme-border')
 
@@ -110,28 +105,11 @@ function bgDark() {
 
     document.querySelector('.body').classList.toggle('dark');
     document.querySelector('.bg-theme').classList.toggle('dark');
-    
+
     let lis = document.getElementsByClassName('li');
     for (let i = 0; i < lis.length; i++) {
         lis[i].classList.toggle('liDark');
-      }
-
-   /* let liList = document.getElementsByTagName('li');
-    if (click == 1) {
-        for (let i = 0; i < liList.length; i++) {
-            liList[i].style.backgroundColor = '#fff';
-            liList[i].style.color = '#000';
-        }
-
     }
-    if (click == 2) {
-        for (let i = 0; i < liList.length; i++) {
-            liList[i].style.backgroundColor = '#000';
-            liList[i].style.color = '#fff';
-        }
-
-    }*/
-
 
 }
 

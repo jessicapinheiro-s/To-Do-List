@@ -23,7 +23,7 @@ body {
 }
 
 #lista {
-    margin: 0px auto 80px  ;
+    margin: 0px auto 80px;
     width: 350px;
     z-index: 1;
 
@@ -244,13 +244,12 @@ button {
 .anime-theme-border.animation {
     border: 5px solid #ffffff;
 }
-.li{
+
+.li {
     background-color: #000000;
 }
-.liDark{
+
+.liDark {
     background-color: #ffffff;
     color: #000000;
-}
-#li-item{
-    background-color: brown;
 }
