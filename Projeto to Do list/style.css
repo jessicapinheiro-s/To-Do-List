@@ -166,7 +166,8 @@ button {
 }
 
 .container.dark {
-    background-color: #1b1b1b;
+    background-color: #ffffff;
+    color: #000;
 }
 
 .body.anime {
@@ -246,6 +247,9 @@ button {
     background-color: #000000;
 }
 .liDark{
-    background-color: #1b1b1b;
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #000000;
+}
+#li-item{
+    background-color: brown;
 }

@@ -1,5 +1,13 @@
 let tarefas = [];
 
+function addClasses() {
+    let lis = document.getElementsByTagName("li");
+    for (let i = 0; i < lis.length; i++) {
+        lis[i].setAttribute('class', 'li');
+    }
+}
+addClasses();
+
 function verificarLocalStorage() {
     if (localStorage.getItem('listaTarefa')) {
         let listTarefaArray = localStorage.getItem('listaTarefa');
@@ -12,7 +20,9 @@ function verificarLocalStorage() {
             let txtx = document.createTextNode(partes[i]);
             list.appendChild(li);
             li.appendChild(txtx);
+            
         }
+        addClasses();
     }
 }
 verificarLocalStorage();
@@ -40,6 +50,7 @@ function addTarefa() {
 
     let lista = document.getElementById('lista');
     let li = document.createElement('li');
+    
     let txt = document.createTextNode(tarefa);
     let checkbox = document.createElement('input');
 
@@ -50,6 +61,7 @@ function addTarefa() {
     li.appendChild(checkbox);
     li.appendChild(txt);
     lista.appendChild(li);
+
 
 
 
@@ -93,20 +105,35 @@ btExcluir.addEventListener('click', excluir);
 
 
 function bgDark() {
-    document.querySelector('.dark-theme-border').classList.toggle('animation');
+    let btnDark = document.querySelector('.dark-theme-border')
+
+    btnDark.classList.toggle('animation');
 
     document.querySelector('.body').classList.toggle('dark');
     document.querySelector('.container').classList.toggle('dark');
     
+    let lis = document.getElementsByClassName('li');
+    for (let i = 0; i < lis.length; i++) {
+        lis[i].classList.toggle('liDark');
+      }
 
-        let liList = document.getElementsByTagName('li');
-        alert(document.getElementsByTagName('li').length);
-        for(let i=0; i< liList.length; i++){
+   /* let liList = document.getElementsByTagName('li');
+    if (click == 1) {
+        for (let i = 0; i < liList.length; i++) {
             liList[i].style.backgroundColor = '#fff';
             liList[i].style.color = '#000';
-
         }
-    
+
+    }
+    if (click == 2) {
+        for (let i = 0; i < liList.length; i++) {
+            liList[i].style.backgroundColor = '#000';
+            liList[i].style.color = '#fff';
+        }
+
+    }*/
+
+
 }
 
 
