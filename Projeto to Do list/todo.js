@@ -1,3 +1,18 @@
+function verificarLocalStorage (){
+    if (localStorage.getItem('listaTarefa')) {
+        alert("existem tarefas salvas");
+        let listTarefaArray = localStorage.getItem('listaTarefa');
+
+
+        let div = document.createElement('div');
+        let pTarefa = document.createElement('p');
+        let list = document.getElementById('lista');
+        list.appendChild(div);
+        pTarefa.innerHTML = `${listTarefaArray}`;
+        div.appendChild(pTarefa);
+    }
+}
+verificarLocalStorage();
 function addTarefa() {
     let inTarefa = document.getElementById('inTarefa');
     let tarefa = inTarefa.value;
@@ -5,14 +20,6 @@ function addTarefa() {
     let respost = document.getElementById("resposta");
 
 
-    if (localStorage.getItem('listaTarefa')) {
-        let listTarefaArray = localStorage.getItem('listaTarefa');
-        let div = document.createElement('div');
-        let pTarefa = document.createElement('p');
-        div.appendChild(document.getElementById('list'));
-        pTarefa.innerHTML = `${listTarefaArray}`;
-        pTarefa.appendChild(div);
-    }else{
         if (tarefa == '') {
             resp.innerHTML = `O campo está vazio, digite algo..`;
             respost.style.backgroundColor = '#d12929';
@@ -41,18 +48,20 @@ function addTarefa() {
         lista.appendChild(li);
     
         //salva no localStorage
-        localStorage.setItem('tarefa', tarefa);
+        //criando a array de obj
         let listaTarefa = JSON.parse(localStorage.getItem('listaTarefa') || '[]')
     
+        //dando um push a cada tarefa adicionada
         listaTarefa.push({ tarefa: tarefa });
     
+        //salva no localStorage
         localStorage.setItem("listaTarefa", JSON.stringify(listaTarefa));
     
         inTarefa.value = '';
         inTarefa.focus();
     }
 
-}
+
 let btAdd = document.getElementById('btAdd');
 btAdd.addEventListener('click', addTarefa);
 
