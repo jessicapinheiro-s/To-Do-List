@@ -23,7 +23,7 @@ body {
 }
 
 #lista {
-    margin: 0px auto 60px  ;
+    margin: 0px auto 80px  ;
     width: 350px;
     z-index: 1;
 
@@ -159,7 +159,7 @@ button {
     left: 0;
     right: 0;
     z-index: 2;
-    background-color: #fff;
+    background-color: white;
 }
 
 .body.dark {
@@ -167,9 +167,8 @@ button {
     color: #fff;
 }
 
-.container.dark {
-    background-color: #ffffff;
-    color: #000;
+.bg-theme.dark {
+    background-color: transparent;
 }
 
 .body.anime {

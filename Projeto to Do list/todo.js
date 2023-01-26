@@ -109,7 +109,7 @@ function bgDark() {
     btnDark.classList.toggle('animation');
 
     document.querySelector('.body').classList.toggle('dark');
-    document.querySelector('.container').classList.toggle('dark');
+    document.querySelector('.bg-theme').classList.toggle('dark');
     
     let lis = document.getElementsByClassName('li');
     for (let i = 0; i < lis.length; i++) {
