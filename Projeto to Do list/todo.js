@@ -15,6 +15,11 @@ function verificarLocalStorage() {
         let list = document.getElementById('lista');
 
         for (let i = 0; i < partes.length; i++) {
+            partes[i].replaceAll('tarefa', '');
+            partes[i].replaceAll('[', '');
+            partes[i].replaceAll('}', '');
+            partes[i].replaceAll(']', '');
+
             let li = document.createElement('li')
             let txtx = document.createTextNode(partes[i]);
             
@@ -54,21 +59,23 @@ document.getElementById('btAdd').addEventListener('click', function addTarefa() 
     respost.style.backgroundColor = '#ffffff';
     resp.innerHTML = '';
 
+   
     let lista = document.getElementById('lista');
     let li = document.createElement('li');
 
     let txt = document.createTextNode(tarefa);
     let checkbox = document.createElement('input');
 
-    checkbox.classList.add('checkbox');
     checkbox.type = 'checkbox';
-    checkbox.id = 'checkbox';
 
+    lista.appendChild(li);
     li.appendChild(checkbox);
     li.appendChild(txt);
-    lista.appendChild(li);
+    
 
     li.setAttribute('class', 'li');
+    
+    
 
     //salva no localStorage
     //criando a array de obj
