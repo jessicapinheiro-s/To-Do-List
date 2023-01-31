@@ -15,10 +15,9 @@ function verificarLocalStorage() {
         let list = document.getElementById('lista');
 
         for (let i = 0; i < partes.length; i++) {
-            partes[i].replaceAll('tarefa', '');
+            partes[i].replace('(tarefa)', '');
             partes[i].replaceAll('[', '');
-            partes[i].replaceAll('}', '');
-            partes[i].replaceAll(']', '');
+           
 
             let li = document.createElement('li')
             let txtx = document.createTextNode(partes[i]);
