@@ -10,28 +10,12 @@ addClasses();
 function verificarLocalStorage() {
     if (localStorage.getItem('listaTarefa')) {
         let listTarefaArray = localStorage.getItem('listaTarefa');
-        let partes = listTarefaArray.split(",");
+        var person = JSON.parse(listTarefaArray);
 
-        let list = document.getElementById('lista');
-
-        for (let i = 0; i < partes.length; i++) {
-            partes[i].replace('(tarefa)', '');
-            partes[i].replaceAll('[', '');
-           
-
-            let li = document.createElement('li')
-            let txtx = document.createTextNode(partes[i]);
-            
-            let checkbox = document.createElement('input');
-
-            checkbox.classList.add('checkbox');
-            checkbox.type = 'checkbox';
-            checkbox.id = 'checkbox';
-
-            li.appendChild(checkbox);
-            list.appendChild(li);
-            li.appendChild(txtx);
+        for (let i in person) {
+            ciarElementolista (person[i].tarefa);
         }
+
         addClasses();
     }
 }
@@ -40,49 +24,22 @@ verificarLocalStorage();
 document.getElementById('btAdd').addEventListener('click', function addTarefa() {
     let inTarefa = document.getElementById('inTarefa');
     let tarefa = inTarefa.value;
-    let resp = document.querySelector('div.resposta');
-    let respost = document.getElementById("resposta");
-
 
     if (tarefa == '') {
-        resp.innerHTML = `O campo está vazio, digite algo..`;
-        respost.style.backgroundColor = '#d12929';
-        respost.style.width = '300px';
-        respost.style.margin = '0 auto';
-        respost.style.color = '#fff';
-        respost.style.padding = '15px';
-        respost.style.borderRadius = '8px';
+        alert('O campo está vazio, digite algo..');
         inTarefa.focus();
         return;
     }
-    respost.style.backgroundColor = '#ffffff';
-    resp.innerHTML = '';
 
+    ciarElementolista (tarefa);
    
-    let lista = document.getElementById('lista');
-    let li = document.createElement('li');
-
-    let txt = document.createTextNode(tarefa);
-    let checkbox = document.createElement('input');
-
-    checkbox.type = 'checkbox';
-
-    lista.appendChild(li);
-    li.appendChild(checkbox);
-    li.appendChild(txt);
-    
-
-    li.setAttribute('class', 'li');
-    
-    
-
     //salva no localStorage
     //criando a array de obj
-    let listaTarefa = JSON.parse(localStorage.getItem('listaTarefa') || '[]')
+    let listaTarefa = JSON.parse(localStorage.getItem('listaTarefa') || '[]');
+    
 
     //dando um push a cada tarefa adicionada
     listaTarefa.push({ tarefa: tarefa });
-
     //salva no localStorage
     localStorage.setItem("listaTarefa", JSON.stringify(listaTarefa));
 
@@ -90,7 +47,28 @@ document.getElementById('btAdd').addEventListener('click', function addTarefa() 
     inTarefa.focus();
 })
 
+//função que cria elementos da tarefa
+function ciarElementolista (taref){
+    let lista = document.getElementById('lista');
+    let li = document.createElement('li');
+    let divCheckbox = document.createElement('div');
 
+    let txt = document.createTextNode(taref);
+    let checkbox = document.createElement('input');
+
+    checkbox.type = 'checkbox';
+
+    lista.appendChild(li);
+    li.appendChild(divCheckbox);
+    li.appendChild(txt);
+    divCheckbox.appendChild(checkbox)
+
+    li.setAttribute('class', 'li');
+    divCheckbox.setAttribute('class', 'divCheckbox');
+
+}
+
+//função para excluir item da lista
 document.getElementById('btExcluir').addEventListener('click', function excluir() {
     let checkbox = document.getElementsByTagName('input');
     let li = document.getElementsByTagName('li');
