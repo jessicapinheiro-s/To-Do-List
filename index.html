@@ -6,39 +6,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
-    <link rel="stylesheet" href="Projeto to Do list/style.css">
-    <link rel="stylesheet" href="Projeto to Do list/responsive.css">
+    <link rel="stylesheet" href="Projeto to Do list/css/style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
 
 <body class="body">
-
-    <div class="container">
-        <div class="subContainer">
-            <h1>To Do List</h1>
-            <div class="entrada-de-dados">
-                <input type="text" id="inTarefa" placeholder=" Digite uma tarefa">
-                <button id="btAdd">+</button>
+    <main>
+        <div class="menu-vertical">
+            <span>Categorias</span>
+            <nav>
+                <ul>
+                    <li><i class='bx bx-task-x'></i><a href=""></a> Diarias</li>
+                    <li><i class='bx bx-task-x'></i><a href=""></a> Mensais</li>
+                    <li><i class='bx bx-task-x'></i><a href=""></a> Semestrais</li>
+                </ul>
+            </nav>
+        </div>
+        <div class="container">
+            <div class="subContainer">
+                <div class="entrada-de-dados">
+                    <input type="text" id="inTarefa" placeholder=" Digite uma tarefa">
+                    <button id="btAdd">+</button>
+                </div>
+                <button id="btExcluir"><i class='bx bxs-trash'></i></button>
             </div>
-            <button id="btExcluir"><i class='bx bxs-trash'></i></button>
+            <ul id="lista">
+
+            </ul>
         </div>
-    </div>
-    <ul id="lista">
+        
 
-    </ul>
-
-    <div class="bg-theme">
-        <div class="theme-circles">
-            <div class="dark-theme-border" id="dark-theme-border" onclick="bgDark()"></div>
+        <div class="bg-theme">
+            <div class="theme-circles">
+                <div class="dark-theme-border" id="dark-theme-border" onclick="bgDark()"></div>
 
 
-            <!--<div class="anime-theme-border" onclick="bgAnime()">
-            </div>-->
+                <!--<div class="anime-theme-border" onclick="bgAnime()">
+                </div>-->
+            </div>
         </div>
-    </div>
-    <script src="Projeto to Do list/todo.js"></script>
-    <div class="resposta" id="resposta"></div>
+        <script src="Projeto to Do list/todo.js"></script>
+        <div class="resposta" id="resposta"></div>
+
+    </main>
 </body>
 
 </html>
