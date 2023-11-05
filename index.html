@@ -11,45 +11,41 @@
 
 </head>
 
-<body class="body">
+<body>
     <main>
         <div class="menu-vertical">
-            <span>Categorias</span>
+            <span>CATEGORIAS</span>
             <nav>
                 <ul>
                     <li><i class='bx bx-task-x'></i><a href=""></a> Diarias</li>
                     <li><i class='bx bx-task-x'></i><a href=""></a> Mensais</li>
                     <li><i class='bx bx-task-x'></i><a href=""></a> Semestrais</li>
+                    <li><i class='bx bx-task-x'></i><a href=""></a> Dashboard</li>
                 </ul>
             </nav>
+            <div class="bg-theme">
+                <div class="theme-circles">
+                    <i class='bx bxs-sun'></i>
+                    <div class="dark-theme-border" id="dark-theme-border" onclick="bgDark()"></div>
+                    <i class='bx bxs-moon' ></i>
+                </div>
+            </div>
         </div>
         <div class="container">
             <div class="subContainer">
+                <span>TASKS</span>
                 <div class="entrada-de-dados">
-                    <input type="text" id="inTarefa" placeholder=" Digite uma tarefa">
+                    <input type="text" id="inTarefa" placeholder=" Tarefa">
                     <button id="btAdd">+</button>
                 </div>
                 <button id="btExcluir"><i class='bx bxs-trash'></i></button>
             </div>
-            <ul id="lista">
-
+            <ul id="lista" >
             </ul>
         </div>
-        
-
-        <div class="bg-theme">
-            <div class="theme-circles">
-                <div class="dark-theme-border" id="dark-theme-border" onclick="bgDark()"></div>
-
-
-                <!--<div class="anime-theme-border" onclick="bgAnime()">
-                </div>-->
-            </div>
-        </div>
-        <script src="Projeto to Do list/todo.js"></script>
         <div class="resposta" id="resposta"></div>
-
     </main>
+    <script src="Projeto to Do list/todo.js"></script>
 </body>
 
 </html>

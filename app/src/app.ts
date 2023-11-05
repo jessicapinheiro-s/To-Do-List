@@ -9,7 +9,7 @@ addClasses();
 /*função que verifica se há itens da lista gravados no local storage (não excluidos)*/
 function verificarLocalStorage() {
     if (localStorage.getItem('listaTarefa')) {
-        let listTarefaArray = localStorage.getItem('listaTarefa');
+        let listTarefaArray:any = localStorage.getItem('listaTarefa');
         var person = JSON.parse(listTarefaArray);
 
         for (let i in person) {
@@ -69,10 +69,11 @@ function ciarElementolista (taref:string){
 }
 
 //função para excluir item da lista
-document.getElementById('btExcluir').addEventListener('click', function excluir() {
+const btExcluir = document.getElementById('btExcluir') as HTMLButtonElement;
+btExcluir.addEventListener('click', function excluir() {
     let checkbox = document.getElementsByTagName('input');
     let li = document.getElementsByTagName('li');
-    let lista = document.getElementById('lista');
+    let lista = document.getElementById('lista') as HTMLUListElement;
     let tamc = checkbox.length + 1;
     var aux = -1;
 
