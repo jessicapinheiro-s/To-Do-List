@@ -20,9 +20,9 @@ function verificarLocalStorage() {
     }
 }
 verificarLocalStorage();
-
-document.getElementById('btAdd').addEventListener('click', function addTarefa() {
-    let inTarefa = document.getElementById('inTarefa');
+const btAdd =document.getElementById('btAdd') as HTMLButtonElement;
+btAdd.addEventListener('click', function addTarefa() {
+    let inTarefa = document.getElementById('inTarefa') as HTMLInputElement;
     let tarefa = inTarefa.value;
 
     if (tarefa == '') {
@@ -48,8 +48,8 @@ document.getElementById('btAdd').addEventListener('click', function addTarefa() 
 })
 
 //função que cria elementos da tarefa
-function ciarElementolista (taref){
-    let lista = document.getElementById('lista');
+function ciarElementolista (taref:string){
+    let lista = document.getElementById('lista') as HTMLUListElement;
     let li = document.createElement('li');
     let divCheckbox = document.createElement('div');
 
@@ -88,11 +88,11 @@ document.getElementById('btExcluir').addEventListener('click', function excluir(
 
 /*função para acionar dark theme*/
 function bgDark() {
-    let btnDark = document.querySelector('.dark-theme-border')
+    let btnDark = document.querySelector('.dark-theme-border') as HTMLButtonElement; 
 
     btnDark.classList.toggle('animation');
 
-    document.querySelector('.body').classList.toggle('dark');
+    document.querySelector('.body').classList.toggle('dark') as ;
     document.querySelector('.bg-theme').classList.toggle('dark');
 
     let lis = document.getElementsByClassName('li');
