@@ -1,4 +1,6 @@
-let taskSelecionada:string = '';
+let taskSelecionada: Array<string> = [];
+
+
 function addClasses() {
     let lis = document.getElementsByClassName("li-task");
     for (let i = 0; i < lis.length; i++) {
@@ -11,14 +13,15 @@ addClasses();
 /*função que verifica se há itens da lista gravados no local storage (não excluidos)*/
 function verificarLocalStorage() {
     if (localStorage.getItem('listaTarefa')) {
-        let listTarefaArray:any = localStorage.getItem('listaTarefa');
+        let listTarefaArray: any = localStorage.getItem('listaTarefa');
         var person = JSON.parse(listTarefaArray);
 
         for (let i in person) {
-            ciarElementolista (person[i].tarefa);
+            ciarElementolista(person[i].tarefa);
         }
 
-        addClasses();
+        addClasses()
+        return person;
     }
 }
 verificarLocalStorage();
@@ -33,12 +36,12 @@ btAdd.addEventListener('click', function addTarefa() {
         return;
     }
 
-    ciarElementolista (tarefa);
-   
+    ciarElementolista(tarefa);
+
     //salva no localStorage
     //criando a array de obj
     let listaTarefa = JSON.parse(localStorage.getItem('listaTarefa') || '[]');
-    
+
 
     //dando um push a cada tarefa adicionada
     listaTarefa.push({ tarefa: tarefa, data: new Date().toUTCString() });
@@ -50,59 +53,62 @@ btAdd.addEventListener('click', function addTarefa() {
 })
 
 //função que cria elementos da tarefa
-function ciarElementolista (taref:string){
+function ciarElementolista(taref: string) {
     let lista = document.getElementById('lista') as HTMLUListElement;
     let li = document.createElement('li') as HTMLLIElement;
 
     let txt = document.createTextNode(taref);
     let i = document.createElement('i');
 
-
     lista.appendChild(li);
     li.appendChild(txt);
 
+    let idTask: number | null = 0;
+    let idCompleto = 'li-task' + idTask++;
+
+    li.setAttribute('id', idCompleto);
     li.setAttribute('class', 'li-task');
-    
 }
 
 //função para excluir item da lista
-/*const btExcluir = document.getElementById('btExcluir') as HTMLButtonElement;
+const btExcluir = document.getElementById('container-bt-excluir') as HTMLButtonElement;
 btExcluir.addEventListener('click', function excluir() {
     let li = document.getElementsByClassName('li-task');
     let lista = document.getElementById('lista') as HTMLUListElement;
-   
-    for (const i in li){
-         li[i].addEventListener('click', function (){
-            alert(li[i] + 'Select');
-         })
-    }
-   
-    let tamc = checkbox.length + 1;
-    var aux = -1;
+    
+    let newArray = taskSelecionada.map(f => f);
+    let listTarefaArray: any = localStorage.getItem('listaTarefa');
+    var person = JSON.parse(listTarefaArray);
+    let arrayDeTarefasLocalStorage = person.map(f => f.tarefa);
 
-    for (var i = 0; i < tamc; i++) {
-        if (checkbox[i].checked) {
-            aux = i - 1;
-            lista.removeChild(li[aux]);
-            break;
+
+    for (let i in newArray) {
+        if (arrayDeTarefasLocalStorage.includes(newArray[i])) {
+            //lista.removeChild(li[aux]);
+            alert('o item será excluído');
         }
-    }
-})*/
+
+    })
 
 function atribuirEventoTask() {
-    let li = document.getElementsByClassName('li-task');
-   
-    for (const i in li){
-         li[i].addEventListener('click', function (){
-            const textoTask = li[i].innerHTML;
-            li[i].classList.toggle('selecionada')
-            //alert(textoTask + ' Foi Selecionado');
-            taskSelecionada = textoTask;
-        })
+    const li = document.getElementsByClassName('li-task') as HTMLCollectionOf<HTMLElement>;
+    console.log(li.length);
+
+    for (let i in li) {
+        let idEl = document.getElementById(li[i].id);
+        let textoTask = li[i].innerHTML;
+
+        if (idEl !== null) {
+            idEl.addEventListener('click', function () {
+                li[i].classList.toggle('selecionada');
+                alert(textoTask + ' Foi Selecionado');
+                taskSelecionada.push(textoTask);
+            })
+        }
     }
+
 }
 atribuirEventoTask();
-
 /*função para acionar dark theme*/
 /*function bgDark() {
     let btnDark = document.querySelector('.dark-theme-border') as HTMLButtonElement; 

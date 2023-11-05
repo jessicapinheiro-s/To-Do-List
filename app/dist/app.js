@@ -1,5 +1,5 @@
 "use strict";
-let taskSelecionada = '';
+let taskSelecionada = [];
 function addClasses() {
     let lis = document.getElementsByClassName("li-task");
     for (let i = 0; i < lis.length; i++) {
@@ -16,6 +16,7 @@ function verificarLocalStorage() {
             ciarElementolista(person[i].tarefa);
         }
         addClasses();
+        return person;
     }
 }
 verificarLocalStorage();
@@ -47,40 +48,40 @@ function ciarElementolista(taref) {
     let i = document.createElement('i');
     lista.appendChild(li);
     li.appendChild(txt);
+    let idTask = 0;
+    let idCompleto = 'li-task' + idTask++;
+    li.setAttribute('id', idCompleto);
     li.setAttribute('class', 'li-task');
 }
 //função para excluir item da lista
-/*const btExcluir = document.getElementById('btExcluir') as HTMLButtonElement;
+const btExcluir = document.getElementById('container-bt-excluir');
 btExcluir.addEventListener('click', function excluir() {
     let li = document.getElementsByClassName('li-task');
-    let lista = document.getElementById('lista') as HTMLUListElement;
-   
-    for (const i in li){
-         li[i].addEventListener('click', function (){
-            alert(li[i] + 'Select');
-         })
-    }
-   
-    let tamc = checkbox.length + 1;
-    var aux = -1;
-
-    for (var i = 0; i < tamc; i++) {
-        if (checkbox[i].checked) {
-            aux = i - 1;
-            lista.removeChild(li[aux]);
-            break;
+    let lista = document.getElementById('lista');
+    let newArray = taskSelecionada.map(f => f);
+    let listTarefaArray = localStorage.getItem('listaTarefa');
+    var person = JSON.parse(listTarefaArray);
+    let arrayDeTarefasLocalStorage = person.map(f => f.tarefa);
+    for (let i in newArray) {
+        if (arrayDeTarefasLocalStorage.includes(newArray[i])) {
+            //lista.removeChild(li[aux]);
+            alert('o item será excluído');
         }
     }
-})*/
+});
 function atribuirEventoTask() {
-    let li = document.getElementsByClassName('li-task');
-    for (const i in li) {
-        li[i].addEventListener('click', function () {
-            const textoTask = li[i].innerHTML;
-            li[i].classList.toggle('selecionada');
-            //alert(textoTask + ' Foi Selecionado');
-            taskSelecionada = textoTask;
-        });
+    const li = document.getElementsByClassName('li-task');
+    console.log(li.length);
+    for (let i in li) {
+        let idEl = document.getElementById(li[i].id);
+        let textoTask = li[i].innerHTML;
+        if (idEl !== null) {
+            idEl.addEventListener('click', function () {
+                li[i].classList.toggle('selecionada');
+                alert(textoTask + ' Foi Selecionado');
+                taskSelecionada.push(textoTask);
+            });
+        }
     }
 }
 atribuirEventoTask();
