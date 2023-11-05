@@ -16,7 +16,6 @@ main {
 main .menu-vertical {
   background-color: #8E8FFA;
   padding: 30px;
-  position: static;
   background-color: #190482;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
