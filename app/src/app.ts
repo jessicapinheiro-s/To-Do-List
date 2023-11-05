@@ -73,22 +73,22 @@ function ciarElementolista(taref: string) {
 //função para excluir item da lista
 const btExcluir = document.getElementById('container-bt-excluir') as HTMLButtonElement;
 btExcluir.addEventListener('click', function excluir() {
-    let li = document.getElementsByClassName('li-task');
-    let lista = document.getElementById('lista') as HTMLUListElement;
     
     let newArray = taskSelecionada.map(f => f);
+    console.log(newArray);
     let listTarefaArray: any = localStorage.getItem('listaTarefa');
     var person = JSON.parse(listTarefaArray);
-    let arrayDeTarefasLocalStorage = person.map(f => f.tarefa);
+    console.log(person);
+    let arrayDeTarefasLocalStorage: Array <string> = person.map((item: { tarefa: any; }) => item.tarefa);
 
 
     for (let i in newArray) {
         if (arrayDeTarefasLocalStorage.includes(newArray[i])) {
             //lista.removeChild(li[aux]);
-            alert('o item será excluído');
+            //alert('o item será excluído');
         }
-
-    })
+    }
+})
 
 function atribuirEventoTask() {
     const li = document.getElementsByClassName('li-task') as HTMLCollectionOf<HTMLElement>;
@@ -101,7 +101,7 @@ function atribuirEventoTask() {
         if (idEl !== null) {
             idEl.addEventListener('click', function () {
                 li[i].classList.toggle('selecionada');
-                alert(textoTask + ' Foi Selecionado');
+                //alert(textoTask + ' Foi Selecionado');
                 taskSelecionada.push(textoTask);
             })
         }
