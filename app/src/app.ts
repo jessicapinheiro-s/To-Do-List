@@ -1,10 +1,12 @@
+let taskSelecionada:string = '';
 function addClasses() {
-    let lis = document.getElementsByTagName("li");
+    let lis = document.getElementsByClassName("li-task");
     for (let i = 0; i < lis.length; i++) {
-        lis[i].setAttribute('class', 'li');
+        lis[i].classList.add('li-task');
     }
 }
 addClasses();
+
 
 /*função que verifica se há itens da lista gravados no local storage (não excluidos)*/
 function verificarLocalStorage() {
@@ -20,7 +22,7 @@ function verificarLocalStorage() {
     }
 }
 verificarLocalStorage();
-const btAdd =document.getElementById('btAdd') as HTMLButtonElement;
+const btAdd = document.getElementById('btAdd') as HTMLButtonElement;
 btAdd.addEventListener('click', function addTarefa() {
     let inTarefa = document.getElementById('inTarefa') as HTMLInputElement;
     let tarefa = inTarefa.value;
@@ -39,7 +41,7 @@ btAdd.addEventListener('click', function addTarefa() {
     
 
     //dando um push a cada tarefa adicionada
-    listaTarefa.push({ tarefa: tarefa });
+    listaTarefa.push({ tarefa: tarefa, data: new Date().toUTCString() });
     //salva no localStorage
     localStorage.setItem("listaTarefa", JSON.stringify(listaTarefa));
 
@@ -50,30 +52,31 @@ btAdd.addEventListener('click', function addTarefa() {
 //função que cria elementos da tarefa
 function ciarElementolista (taref:string){
     let lista = document.getElementById('lista') as HTMLUListElement;
-    let li = document.createElement('li');
-    let divCheckbox = document.createElement('div');
+    let li = document.createElement('li') as HTMLLIElement;
 
     let txt = document.createTextNode(taref);
-    let checkbox = document.createElement('input');
+    let i = document.createElement('i');
 
-    checkbox.type = 'checkbox';
 
     lista.appendChild(li);
-    li.appendChild(divCheckbox);
     li.appendChild(txt);
-    divCheckbox.appendChild(checkbox)
 
-    li.setAttribute('class', 'li');
-    divCheckbox.setAttribute('class', 'divCheckbox');
-
+    li.setAttribute('class', 'li-task');
+    
 }
 
 //função para excluir item da lista
-const btExcluir = document.getElementById('btExcluir') as HTMLButtonElement;
+/*const btExcluir = document.getElementById('btExcluir') as HTMLButtonElement;
 btExcluir.addEventListener('click', function excluir() {
-    let checkbox = document.getElementsByTagName('input');
-    let li = document.getElementsByTagName('li');
+    let li = document.getElementsByClassName('li-task');
     let lista = document.getElementById('lista') as HTMLUListElement;
+   
+    for (const i in li){
+         li[i].addEventListener('click', function (){
+            alert(li[i] + 'Select');
+         })
+    }
+   
     let tamc = checkbox.length + 1;
     var aux = -1;
 
@@ -84,25 +87,33 @@ btExcluir.addEventListener('click', function excluir() {
             break;
         }
     }
-})
+})*/
 
+function atribuirEventoTask() {
+    let li = document.getElementsByClassName('li-task');
+   
+    for (const i in li){
+         li[i].addEventListener('click', function (){
+            const textoTask = li[i].innerHTML;
+            li[i].classList.toggle('selecionada')
+            //alert(textoTask + ' Foi Selecionado');
+            taskSelecionada = textoTask;
+        })
+    }
+}
+atribuirEventoTask();
 
 /*função para acionar dark theme*/
-function bgDark() {
+/*function bgDark() {
     let btnDark = document.querySelector('.dark-theme-border') as HTMLButtonElement; 
 
     btnDark.classList.toggle('animation');
 
-    document.querySelector('.body').classList.toggle('dark') as ;
-    document.querySelector('.bg-theme').classList.toggle('dark');
-
-    let lis = document.getElementsByClassName('li');
+    let lis = document.getElementsByClassName('li-task');
     for (let i = 0; i < lis.length; i++) {
-        lis[i].classList.toggle('liDark');
+        lis[i].classList.toggle('li-taskDark');
     }
 
-}
-
-
+}*/
 
 

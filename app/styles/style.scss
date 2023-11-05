@@ -1,9 +1,18 @@
 $cor-principal-dark: #190482;
 $cor-secundaria: #7752FE;
 $cor-light: #8E8FFA;
-$cor-creme: #ffffff;
 $cor-font-principal: #ffffff;
+$cor-borda: #eeeeee96;
+$task-concluida: green;
+$task-excluida: red;
 
+
+@mixin animacao ($background-color, $color){
+    background-color: $background-color;
+    transform: scale(1.1);
+    transition: all 0.5s;
+    color: $color;
+}
 * {
     margin: 0px;
     padding: 0px;
@@ -14,12 +23,10 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
     color: $cor-font-principal;
-    background-color: $cor-creme;
 }
+
 main {
     display: flex;
-    background-color: $cor-creme ;
-    height: 100vh;
 
     .menu-vertical {
         background-color: $cor-light;
@@ -27,9 +34,10 @@ main {
         position: static;
         background-color: $cor-principal-dark;
         border-top-right-radius: 10px;
-        border-bottom-right-radius:10px ;
-        
-        
+        border-bottom-right-radius: 10px;
+        //height: 100vh;
+        border: 1px solid red;
+
         nav ul li {
             background-color: $cor-principal-dark;
             padding: 20px 30px;
@@ -62,21 +70,21 @@ main {
             padding: 10px;
             position: relative;
             top: 60%;
-            
+
             .theme-circles {
                 display: flex;
                 justify-content: left;
                 align-items: center;
                 align-items: center;
                 justify-content: space-around;
-    
-                i{
+
+                i {
                     font-size: 20px;
                 }
-    
+
             }
 
-            .dark-theme-border{
+            .dark-theme-border {
                 width: 40px;
                 height: 20px;
                 border-radius: 20px;
@@ -111,13 +119,12 @@ main {
     .container {
         width: 100%;
         height: 100vh;
-
+        border: 1px solid rgb(0, 255, 76);
 
         .subContainer {
             margin: auto;
             text-align: center;
-            padding: 20px;
-
+            border: 1px solid rgb(234, 0, 255);
             span {
                 font-size: 1.5rem;
                 color: #000000;
@@ -135,18 +142,17 @@ main {
                     border: none;
                     font-size: 1rem;
                     width: 80%;
-                    border-bottom:1px solid  $cor-principal-dark;
+                    border-bottom: 1px solid $cor-borda;
                     color: #000000;
                 }
 
                 #btAdd {
-                    background-color: $cor-light;
+                    background-color: $cor-principal-dark;
                     color: $cor-font-principal;
 
                 }
             }
 
-            #btExcluir,
             #btAdd {
                 width: 100px;
                 border: none;
@@ -156,53 +162,88 @@ main {
                 font-size: 1.2rem;
             }
 
-            #btExcluir {
-                box-shadow: 1px 3px 5px 3px #bbbbbb36;
-                color: #000000;
-                background-color: $cor-creme;
-
-                #btExcluir:hover {
-                    background-color: #fafafa;
-                }
-            }
-
         }
     }
 
-}
+    .bts-laterais {
+        width: 70px;
+        align-items: center;
+        position: absolute;
+        bottom: 5%;
+        right: 1%;
+        border: 1px solid red;
+        .container-bt-excluir,
+        .container-bt-tarefa-concluida {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+            color: #000000;
+            box-shadow: 1px 3px 5px 3px $cor-borda;
+            padding: 10px;
+            border-radius: 50%;
+            margin: 20px auto;
+            background-color: $cor-font-principal;
+        }
 
+        .container-bt-tarefa-concluida {
+            &:hover {
+                @include animacao($task-concluida, $cor-font-principal);
+            }
+        }
 
-/*
-#lista {
-    margin: 0px auto 80px;
-    width: 350px;
-    z-index: 1;
-}
-
-.li {
-    background-color: $cor-secundaria;
-    padding: 20px;
-    text-align: center;
-    display: flex;
-    justify-content: left;
-    margin: 10px;
-    border-radius: 8px;
-    font-size: 1.2rem;
-
-    #checkbox {
-        margin: 10px;
+        .container-bt-excluir {
+            &:hover {
+                @include animacao($task-excluida, $cor-font-principal);
+            }
+        }
     }
 }
 
+#lista {
+    margin: 0px auto 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 
-.resposta {
-    text-align: center;
+    .li-task {
+        background-color: $cor-light;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        margin: 10px;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        width: 100px;
+        height: 100px;
+        align-items: center;
+        word-wrap: break-word;
+
+        &:hover {
+            @include animacao($cor-secundaria, $cor-font-principal);
+        }
+
+        .bx bxs-trash-alt {
+            display: none;
+        }
+    }
+
+
+    .li-task.selecionada {
+        background-color: $cor-principal-dark;
+    }
+
+
+    .resposta {
+        text-align: center;
+    }
 }
 
 /*cicles theme*/
-
-
-/*
 .circle-theme-dark.animation {
     animation: moveToRight 0.5s ease;
 }
@@ -216,9 +257,8 @@ main {
         transform: translateX(30px);
     }
 }
-*/
-/*
-.circle-theme-dark{
+
+.circle-theme-dark {
     border-radius: 50%;
     width: 30px;
     height: 30px;
@@ -255,13 +295,11 @@ main {
 
 
 
-.divCheckbox {
-    margin-right: 10px;
-}
+
 
 @media (max-width:600px) {
     .container {
         width: 400px;
     }
 
-}*/
+}
