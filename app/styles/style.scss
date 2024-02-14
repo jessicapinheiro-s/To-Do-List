@@ -1,18 +1,20 @@
-$cor-principal-dark: #190482;
-$cor-secundaria: #7752FE;
-$cor-light: #8E8FFA;
-$cor-font-principal: #ffffff;
+$cor-principal-dark: #313131;
+$cor-secundaria: #414141;
+$cor-light: #525252;
+$cor-font-principal: #fff;
 $cor-borda: #eeeeee96;
 $task-concluida: green;
 $task-excluida: red;
+$cor-bt-add: #21E6C1;
 
 
-@mixin animacao ($background-color, $color){
+@mixin animacao ($background-color, $color) {
     background-color: $background-color;
     transform: scale(1.1);
     transition: all 0.5s;
     color: $color;
 }
+
 * {
     margin: 0px;
     padding: 0px;
@@ -23,23 +25,20 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
     color: $cor-font-principal;
+    background-color: $cor-principal-dark ;
 }
 
 main {
     display: flex;
 
     .menu-vertical {
-        background-color: $cor-light;
+        background-color: $cor-secundaria;
         padding: 30px;
-
-        background-color: $cor-principal-dark;
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
         //height: 100vh;
-        border: 1px solid red;
 
         nav ul li {
-            background-color: $cor-principal-dark;
             padding: 20px 30px;
             list-style: none;
             border-radius: 10px;
@@ -107,11 +106,11 @@ main {
 
             .dark-theme-border.animation:before {
                 left: 29px;
-                background-color: #fff;
+                background-color: $cor-font-principal;
             }
 
             .dark-theme-border.animation {
-                border: 5px solid #ffffff;
+                border: 5px solid $cor-font-principal;
             }
         }
     }
@@ -119,12 +118,12 @@ main {
     .container {
         width: 100%;
         height: 100vh;
-        border: 1px solid rgb(0, 255, 76);
 
         .subContainer {
             margin: auto;
             text-align: center;
-            border: 1px solid rgb(234, 0, 255);
+            width: 100%;
+
             span {
                 font-size: 1.5rem;
                 color: #000000;
@@ -134,34 +133,39 @@ main {
             .entrada-de-dados {
                 padding: 10px;
                 display: flex;
-                justify-content: space-around;
+                justify-content: space-between;
+                margin: 10px;
 
                 #inTarefa {
-                    padding: 8px;
+                    padding: 15px;
                     outline: none;
                     border: none;
                     font-size: 1rem;
-                    width: 80%;
-                    border-bottom: 1px solid $cor-borda;
-                    color: #000000;
-                }
-
-                #btAdd {
-                    background-color: $cor-principal-dark;
+                    width: 90%;
                     color: $cor-font-principal;
-
+                    background-color: $cor-secundaria;
+                    border-radius: 10px;
                 }
-            }
 
-            #btAdd {
-                width: 100px;
-                border: none;
+                
+            }
+            .list-tasks{
                 padding: 10px;
-                border-radius: 8px;
-                color: #fff;
-                font-size: 1.2rem;
-            }
 
+            }
+        }
+        
+    }
+    #btAdd {
+        background-color: $cor-bt-add;
+        color: $cor-font-principal;
+        border: none;
+        padding: 15px  20px;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        width: 6%;
+        &:hover {
+            @include animacao($cor-bt-add, $cor-font-principal);
         }
     }
 
@@ -171,7 +175,7 @@ main {
         position: absolute;
         bottom: 5%;
         right: 1%;
-        border: 1px solid red;
+
         .container-bt-excluir,
         .container-bt-tarefa-concluida {
             display: flex;
@@ -180,12 +184,11 @@ main {
             width: 40px;
             height: 40px;
             font-size: 1.5rem;
-            color: #000000;
-            box-shadow: 1px 3px 5px 3px $cor-borda;
+            color: #fff;
             padding: 10px;
             border-radius: 50%;
             margin: 20px auto;
-            background-color: $cor-font-principal;
+            background-color: $cor-secundaria;
         }
 
         .container-bt-tarefa-concluida {
@@ -212,14 +215,14 @@ main {
 
     .li-task {
         background-color: $cor-light;
-        padding: 20px;
+        //padding: 20px;
         display: flex;
         justify-content: center;
         margin: 10px;
         border-radius: 8px;
         font-size: 1.2rem;
-        width: 100px;
-        height: 100px;
+        width: 300px;
+        height: 150px;
         align-items: center;
         word-wrap: break-word;
 
@@ -271,17 +274,17 @@ main {
 }
 
 .circle-theme-dark.ativo {
-    background-color: #ffffff;
+    background-color: $cor-font-principal;
 }
 
 .circle-theme-dark.desativado {
     border-radius: 5px solid white;
-    background-color: #fff;
+    background-color: $cor-font-principal;
 }
 
 .body.dark {
     background-color: #030303;
-    color: #fff;
+    color: $cor-font-principal;
 }
 
 .bg-theme.dark {
@@ -289,7 +292,7 @@ main {
 }
 
 .branco {
-    background-color: #fff;
+    background-color: $cor-font-principal;
 }
 
 

@@ -7,22 +7,20 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
-  color: #ffffff;
+  color: #fff;
+  background-color: #313131;
 }
 
 main {
   display: flex;
 }
 main .menu-vertical {
-  background-color: #8E8FFA;
+  background-color: #414141;
   padding: 30px;
-  background-color: #190482;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  border: 1px solid red;
 }
 main .menu-vertical nav ul li {
-  background-color: #190482;
   padding: 20px 30px;
   list-style: none;
   border-radius: 10px;
@@ -31,7 +29,7 @@ main .menu-vertical nav ul li {
   margin: 10px 0px 10px;
 }
 main .menu-vertical nav ul li:hover {
-  background-color: #8E8FFA;
+  background-color: #525252;
 }
 main .menu-vertical nav ul li i {
   font-size: 1.3rem;
@@ -63,7 +61,7 @@ main .menu-vertical .bg-theme .dark-theme-border {
   width: 40px;
   height: 20px;
   border-radius: 20px;
-  border: 3px solid #ffffff;
+  border: 3px solid #fff;
   position: relative;
 }
 main .menu-vertical .bg-theme .dark-theme-border:before {
@@ -74,7 +72,7 @@ main .menu-vertical .bg-theme .dark-theme-border:before {
   left: 1px;
   top: 50%;
   border-radius: 50%;
-  background-color: #ffffff;
+  background-color: #fff;
   transform: translateY(-50%);
   transition: left 1s;
 }
@@ -83,17 +81,16 @@ main .menu-vertical .bg-theme .dark-theme-border.animation:before {
   background-color: #fff;
 }
 main .menu-vertical .bg-theme .dark-theme-border.animation {
-  border: 5px solid #ffffff;
+  border: 5px solid #fff;
 }
 main .container {
   width: 100%;
   height: 100vh;
-  border: 1px solid rgb(0, 255, 76);
 }
 main .container .subContainer {
   margin: auto;
   text-align: center;
-  border: 1px solid rgb(234, 0, 255);
+  width: 100%;
 }
 main .container .subContainer span {
   font-size: 1.5rem;
@@ -103,28 +100,36 @@ main .container .subContainer span {
 main .container .subContainer .entrada-de-dados {
   padding: 10px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin: 10px;
 }
 main .container .subContainer .entrada-de-dados #inTarefa {
-  padding: 8px;
+  padding: 15px;
   outline: none;
   border: none;
   font-size: 1rem;
-  width: 80%;
-  border-bottom: 1px solid rgba(238, 238, 238, 0.5882352941);
-  color: #000000;
-}
-main .container .subContainer .entrada-de-dados #btAdd {
-  background-color: #190482;
-  color: #ffffff;
-}
-main .container .subContainer #btAdd {
-  width: 100px;
-  border: none;
-  padding: 10px;
-  border-radius: 8px;
+  width: 90%;
   color: #fff;
+  background-color: #414141;
+  border-radius: 10px;
+}
+main .container .subContainer .list-tasks {
+  padding: 10px;
+}
+main #btAdd {
+  background-color: #21E6C1;
+  color: #fff;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 8px;
   font-size: 1.2rem;
+  width: 6%;
+}
+main #btAdd:hover {
+  background-color: #21E6C1;
+  transform: scale(1.1);
+  transition: all 0.5s;
+  color: #fff;
 }
 main .bts-laterais {
   width: 70px;
@@ -132,7 +137,6 @@ main .bts-laterais {
   position: absolute;
   bottom: 5%;
   right: 1%;
-  border: 1px solid red;
 }
 main .bts-laterais .container-bt-excluir,
 main .bts-laterais .container-bt-tarefa-concluida {
@@ -142,24 +146,23 @@ main .bts-laterais .container-bt-tarefa-concluida {
   width: 40px;
   height: 40px;
   font-size: 1.5rem;
-  color: #000000;
-  box-shadow: 1px 3px 5px 3px rgba(238, 238, 238, 0.5882352941);
+  color: #fff;
   padding: 10px;
   border-radius: 50%;
   margin: 20px auto;
-  background-color: #ffffff;
+  background-color: #414141;
 }
 main .bts-laterais .container-bt-tarefa-concluida:hover {
   background-color: green;
   transform: scale(1.1);
   transition: all 0.5s;
-  color: #ffffff;
+  color: #fff;
 }
 main .bts-laterais .container-bt-excluir:hover {
   background-color: red;
   transform: scale(1.1);
   transition: all 0.5s;
-  color: #ffffff;
+  color: #fff;
 }
 
 #lista {
@@ -171,29 +174,28 @@ main .bts-laterais .container-bt-excluir:hover {
   flex-wrap: wrap;
 }
 #lista .li-task {
-  background-color: #8E8FFA;
-  padding: 20px;
+  background-color: #525252;
   display: flex;
   justify-content: center;
   margin: 10px;
   border-radius: 8px;
   font-size: 1.2rem;
-  width: 100px;
-  height: 100px;
+  width: 300px;
+  height: 150px;
   align-items: center;
   word-wrap: break-word;
 }
 #lista .li-task:hover {
-  background-color: #7752FE;
+  background-color: #414141;
   transform: scale(1.1);
   transition: all 0.5s;
-  color: #ffffff;
+  color: #fff;
 }
 #lista .li-task .bx bxs-trash-alt {
   display: none;
 }
 #lista .li-task.selecionada {
-  background-color: #190482;
+  background-color: #313131;
 }
 #lista .resposta {
   text-align: center;
@@ -224,7 +226,7 @@ main .bts-laterais .container-bt-excluir:hover {
 }
 
 .circle-theme-dark.ativo {
-  background-color: #ffffff;
+  background-color: #fff;
 }
 
 .circle-theme-dark.desativado {
