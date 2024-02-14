@@ -56,12 +56,17 @@ btAdd.addEventListener('click', function addTarefa() {
 function ciarElementolista(taref: string) {
     let lista = document.getElementById('lista') as HTMLUListElement;
     let li = document.createElement('li') as HTMLLIElement;
+    let span = document.createElement('span') as HTMLLIElement; 
 
     let txt = document.createTextNode(taref);
-    let i = document.createElement('i');
+    let dataAtual = document.createTextNode(new Date().toLocaleDateString());
+    let i = document.createElement('i'); 
+
+
 
     lista.appendChild(li);
     li.appendChild(txt);
+    li.appendChild(dataAtual);
 
     let idTask: number | null = 0;
     let idCompleto = 'li-task' + idTask++;
@@ -92,7 +97,6 @@ btExcluir.addEventListener('click', function excluir() {
 
 function atribuirEventoTask() {
     const li = document.getElementsByClassName('li-task') as HTMLCollectionOf<HTMLElement>;
-    console.log(li.length);
 
     for (let i in li) {
         let idEl = document.getElementById(li[i].id);
